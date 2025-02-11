@@ -13,7 +13,7 @@ public class JobController {
     private JobService jobService;
 
     // Récupérer tous les jobs
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Job> getAllJobs() {
         return jobService.getAll();
     }
