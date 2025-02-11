@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/candidats")
 public class CandidatRestApi {
     private String title=" Hello from MS Candidat";
 
@@ -19,6 +20,7 @@ public class CandidatRestApi {
 
     @Autowired
     private ICandidatService candidatService;
+    @RequestMapping("/get")
     public ResponseEntity<List<Candidat>> getAll() {
         return new ResponseEntity<List<Candidat>>(candidatService.getAll(), HttpStatus.OK);
     }
