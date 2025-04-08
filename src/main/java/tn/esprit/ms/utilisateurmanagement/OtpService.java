@@ -1,0 +1,32 @@
+package tn.esprit.ms.utilisateurmanagement;
+
+import org.springframework.stereotype.Service;
+
+import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+@Service
+public class OtpService {
+
+    private Map<String, String> otpStorage = new HashMap<>();
+    private final Random random = new SecureRandom();
+
+
+    public String generateOtp(String key) {
+        System.out.println("Service ==> Inside generateOtp =======>");
+
+        // Generate a random OTP
+        String otp = String.format("%06d", random.nextInt(1000000));
+
+        // Store the OTP with the associated key
+        otpStorage.put(key, otp);
+        return otp;
+    }
+
+    public boolean validateOtp(String key, String otp) {
+        System.out.println("Service ==> Inside validateOtp =======>");
+        return otp.equals(otpStorage.get(key));
+    }
+}
