@@ -18,8 +18,9 @@ public class ApiGetAwayApplication {
     @Bean
     public RouteLocator getwayRoutes (RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("MScandidat",r->r.path("/candidats/**").uri("lb://MScandidat"))
-                .route("Job",r->r.path("/job/jobs/**").uri("lb://Job"))
+               // .route("MScandidat",r->r.path("/candidats/**").uri("lb://MScandidat"))
+                //.route("Job",r->r.path("/job/jobs/**").uri("lb://Job"))
+                .route("UtilisateurManagement", r->r.path("/UtilisateurManagement/**").uri("lb://UtilisateurManagement"))
                 .build();
     }
 }
